@@ -9,9 +9,9 @@ class RedisDatabases:
     USERS = 'USERS'
 
 
-API_TOKEN = settings.bot_token
+API_TOKEN = settings.BOT_TOKEN
 bot = Bot(token=API_TOKEN)
 
 
-storage = RedisStorage2('localhost', 6379, db=5, pool_size=10, prefix='my_fsm_key')
+storage = RedisStorage2(settings.REDIS_HOST, settings.REDIS_PORT, db=5, pool_size=10, prefix='my_fsm_key')
 dp = Dispatcher(bot, storage=storage)

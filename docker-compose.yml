@@ -9,3 +9,19 @@ services:
       - "6379:6379"
     volumes:
       - ./data/redis:/data
+    networks:
+      - stickertagbotNetwork
+
+  stickertagbot:
+    build: ./
+    command: poetry run python main.py
+    container_name: stickertagbot
+    depends_on:
+      - telegram-redis
+    networks:
+      - stickertagbotNetwork
+
+
+networks:
+  stickertagbotNetwork:
+    external: true

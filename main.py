@@ -19,6 +19,7 @@ logging.basicConfig(level=logging.DEBUG)
 @dp.inline_handler()
 async def inline_echo(inline_query: InlineQuery):
     text = inline_query.query or 'echo'
+    text = text.lower()
 
     if text == 'echo':
         results = await stickers.get_all()

@@ -22,6 +22,7 @@ class StickerStorage:
         )
 
     async def add(self, unique_id: str, file_id: str, alias: str):
+        alias = alias.lower()
         sticker = CustomSticker(unique_id=unique_id, file_id=file_id, alias=alias)
 
         async with self.session.client() as client:

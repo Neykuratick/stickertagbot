@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  telegram-redis:
+    image: redis:alpine
+    container_name: telegram-redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data

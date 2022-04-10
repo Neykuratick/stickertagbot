@@ -1,0 +1,6 @@
+data
+.venv
+.env
+poetry.lock
+.idea
+__pycache__/
